@@ -1,0 +1,134 @@
+<link rel="stylesheet" href="/css/header.css">
+<header>
+    <nav class="navbar navbar-light">
+    <button id="HamBurgerIcon" class="btn " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop"><span class="navbar-toggler-icon"></span></button>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Please Select Action From Following</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          
+                <%if(locals.user && locals.user.isAdmin){%> 
+                    <div class="side-div-nav">
+                        <a class="btn btn-warning" href="/admin/assignForReview">AssignForReview</a>
+                    </div>
+                    <div class="side-div-nav">
+                        <a class="btn btn-warning" href="/admin/makeAdmin">Make-Admin</a>
+                    </div>
+                    <div class="side-div-nav">
+                        <a class="btn btn-warning" href="/admin/employeeManagement/viewAllEmployee">EmployeeManagement</a>
+                    </div>
+                    <div class="side-div-nav">
+                        <a class="btn btn-warning" href="/admin/logout">AdminLogOut</a>
+                    </div>
+                <%}%>
+            
+                <%if(locals.user){%>
+                    <!-- <div class="side-div-nav">
+                        <a class="btn btn-warning" href="/employee">Employee</a>
+                    </div> -->
+                    <div class="side-div-nav">
+                        <a class="btn btn-warning" role="button" href="/employee/showListToReview">To Review</a>
+                    </div>
+                    <div class="side-div-nav">
+                        <a class="btn btn-warning" href="/employee/review/myReviews">My Reviews</a>
+                    </div>
+                <%}%>
+            
+                <%if(locals.user && !user.isAdmin){%>
+                    <div class="side-div-nav">
+                        <a class="btn btn-warning" role="button" href="/employee/logout">Employee Logout</a>
+                    </div>
+                <%}%>
+            
+                <%if(!locals.user){%>
+                    <div class="side-div-nav">
+                        <a class="btn btn-warning" href="/employeeLogin">Employee Login</a>
+                    </div>
+                    <div class="side-div-nav">
+                        <a class="btn btn-warning" href="/adminLogin">Admin Login</a>
+                    </div>
+                    <div class="side-div-nav">
+                        <a class="btn btn-warning" href="/employeeSignup">Employee SignUp</a>
+                    </div>
+                <%}%>
+            
+        </div>
+    </div>
+
+</nav>
+
+    
+    <h4 id="Heading">Employee-Review-System</h4>
+    <ul id="ForBigScreen" hidden>
+        <%if(locals.user && locals.user.isAdmin){%> 
+            
+                <a class="btn btn-warning" href="/admin/assignForReview">Assign For Review</a>
+            
+            
+                <a class="btn btn-warning" href="/admin/makeAdmin">Make Admin</a>
+                <a class="btn btn-warning" href="/admin/employeeManagement/viewAllEmployee">Admin Management</a>
+                <a class="btn btn-warning" href="/admin/logout">Admin LogOut</a>
+            
+        <%}%>
+
+        <%if(locals.user){%>
+            
+                <!-- <a class="btn btn-warning" href="/employee">Employee</a> -->
+            
+            
+                <a class="btn btn-warning" role="button" href="/employee/showListToReview">To Review</a>
+            
+            
+                <a class="btn btn-warning" href="/employee/review/myReviews">My Reviews</a>
+            
+        <%}%>
+
+        <%if(locals.user && !user.isAdmin){%>
+            
+                <a class="btn btn-warning" role="button" href="/employee/logout">Employee Logout</a>
+            
+        <%}%>
+
+        <%if(!locals.user){%>
+            
+                <a class="btn btn-warning" href="/adminLogin">Admin Login</a>
+                
+                <a class="btn btn-warning" href="/employeeLogin">Employee Login</a>
+        
+                <a class="btn btn-warning" href="/employeeSignup">Employee SignUp</a>
+        <%}%>
+    </ul>
+</div>
+</div>
+
+<script>
+    let a = window.visualViewport.width;
+    console.log(a);
+    const b = document.getElementById('ForBigScreen');
+    const c = document.getElementById('HamBurgerIcon');
+    if(a>1250){
+        b.hidden = false;
+        c.hidden = true;
+    }else{
+        b.hidden = true;
+        c.hidden = false;
+    }
+    window.addEventListener('resize',()=>{
+        let a = window.visualViewport.width;
+        const c = document.getElementById('HamBurgerIcon');
+        console.log(a);
+        let b = document.getElementById('ForBigScreen');
+        if(a>1000){
+            b.hidden = false;
+            c.hidden = true;
+        }else{
+            b.hidden = true;
+            c.hidden = false;
+        }
+    })
+
+</script>
+
+</header>

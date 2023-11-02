@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/reviewForm.css">
+<div id="ReviewContainer">
+    <h1 class="subtitle is-1">Review</h1>
+    <article class="panel is-success" id="reviewOptionsContainer">
+        <p class="panel-heading">
+            <%= employee.name %>
+        </p>
+        <form action="/employee/review/fidback-form/<%= employee._id %>" method="post">
+        
+            <label class="radio" >
+            </label>
+            
+                <label class="radio panel-block" >
+                    😁 || <input type="radio" name="feedback" id="" value="5" >
+                    Best
+                </label>
+    
+            
+                <label class="radio panel-block">
+                    🙂 || <input type="radio" name="feedback" id="" value="4">
+                    Good
+                </label>
+    
+            
+                <label class="radio panel-block">
+                    😐 || <input type="radio" name="feedback" id="" value="3">
+                    Ok
+                </label>
+    
+            
+                <label class="radio panel-block">
+                    🙁 || <input type="radio" name="feedback" id="" value="2">
+                    Poor
+                </label>
+    
+            
+                <label class="radio panel-block">
+                    😡 || <input type="radio" name="feedback" id="" value="1">
+                    Very Poor
+                </label>
+            
+                <button type="submit" class="button is-link is-outlined is-fullwidth">
+                    Submit Review for <%= employee.name %>
+                </button>
+        
+        </form>
+    </article>
+</div>

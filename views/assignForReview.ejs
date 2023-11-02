@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="/css/asignForReview.css">
+<form action="/admin/assignForReview-form" method="post" id="assignForm" >
+    <div id="assignContainer">
+        <article class="panel is-primary subtitle is-5" id="left">
+            <p class="panel-heading" >
+                Select member who will review
+            </p>
+            <div>
+                <label class="radio"></label>
+                <%for(e of employe){%>
+                    <label class="radio panel-block " id= "<%=e._id%>" >
+                        👤 <%= e.name %>
+                        <input type="radio" name="reveiwer" value="<%=e._id%>">
+                    </label>
+                <%}%>
+            </div>
+        </article>
+        <article class="panel is-danger subtitle is-5" id="right">
+            <p class="panel-heading">
+                Select member to be reviewrd
+            </p>
+            <div>
+                <label class="radio"></label>
+                <%for(e of employe){%>
+                    <label class="checkbox panel-block " id= "right<%=e._id%>">
+                        👤 &nbsp;<%= e.name %>&nbsp;
+                        <input  type="checkbox" name="toBeReviewed" value="<%=e._id%>" class="<%=e._id%>">
+                    </label>
+                <%}%>
+            </div>
+        </article>
+    </div>
+    <input id="subBut" class="button is-info" type="submit">
+</form>
+<script src="/demo.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
